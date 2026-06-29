@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Web IPM Cileungsi | Beranda</title>
     
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Font Utama: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0056b3', // Biru Profesional
+                        primary: '#1a73e8', // Biru Medium / Google Blue (Cerah, Bersih, dan Tidak Terlalu Gelap)
                         accentGreen: '#10b981', // Hijau
                         accentOrange: '#f97316', // Orange
                     },
@@ -32,7 +32,7 @@
         .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
         .hero-pattern {
             background-color: #ffffff;
-            background-image: radial-gradient(#0056b311 1px, transparent 1px);
+            background-image: radial-gradient(#1a73e811 1px, transparent 1px);
             background-size: 20px 20px;
         }
         /* Style untuk dropdown agar muncul saat hover */
@@ -41,70 +41,73 @@
 </head>
 <body class="bg-white text-gray-900 font-sans selection:bg-blue-100 selection:text-primary">
 
-    <!-- NAVIGASI (Poin 1 PRD) -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <!-- NAVIGASI (Menggunakan Biru Medium yang Lebih Cerah & Fresh) -->
+    <nav class="sticky top-0 z-50 bg-primary border-b border-white/10 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
-            <!-- Logo -->
+            <!-- Logo (Kontras Tinggi) -->
             <a href="#" class="flex items-center space-x-3">
-                <div class="bg-primary p-2 rounded-xl text-white shadow-lg shadow-blue-200">
+                <div class="bg-white p-2 rounded-xl text-primary shadow-md">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <div class="leading-none">
-                    <span class="text-xl font-extrabold tracking-tighter text-primary uppercase">IPM Cileungsi</span>
-                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Portal Web Resmi</p>
+                    <span class="text-xl font-extrabold tracking-tighter text-white uppercase">IPM Cileungsi</span>
+                    <p class="text-[9px] font-bold text-blue-100 uppercase tracking-widest">Portal Web Resmi</p>
                 </div>
             </a>
             
             <!-- Menu Desktop -->
-            <div class="hidden md:flex items-center space-x-6 text-sm font-bold text-gray-500">
-                <a href="#" class="text-primary bg-blue-50 px-4 py-2 rounded-full transition-all">Beranda</a>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-bold">
+                <a href="#" class="text-white bg-white/10 px-4 py-2 rounded-full transition-all">Beranda</a>
                 
                 <!-- Profil Dropdown -->
                 <div class="group relative">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors py-2">Profil 
+                    <button class="flex items-center gap-1 text-blue-50 hover:text-white transition-colors py-2">
+                        Profil 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
-                    <div class="dropdown-menu absolute hidden bg-white shadow-2xl rounded-2xl p-2 w-52 border border-gray-50 mt-0 animate-in fade-in slide-in-from-top-2">
+                    <div class="dropdown-menu absolute hidden bg-white shadow-2xl rounded-2xl p-2 w-52 border border-gray-100 mt-0 text-gray-800">
                         <a href="#sejarah" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Sejarah</a>
-                        <a href="#struktur" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors font-semibold">Struktur Organisasi</a>
+                        <a href="#struktur" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors font-semibold text-primary">Struktur Organisasi</a>
                         <a href="#arsip" class="block p-3 hover:bg-gray-50 rounded-xl border-t mt-1 transition-colors text-accentOrange">Arsip</a>
                     </div>
                 </div>
 
                 <!-- Label Dropdown -->
                 <div class="group relative">
-                    <button class="flex items-center gap-1 hover:text-primary transition-colors py-2 text-accentGreen">Label 
+                    <button class="flex items-center gap-1 text-blue-50 hover:text-white transition-colors py-2">
+                        Label 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
-                    <div class="dropdown-menu absolute hidden bg-white shadow-2xl rounded-2xl p-2 w-48 border border-gray-50 mt-0 animate-in fade-in slide-in-from-top-2">
+                    <div class="dropdown-menu absolute hidden bg-white shadow-2xl rounded-2xl p-2 w-48 border border-gray-100 mt-0 text-gray-800">
                         <a href="#berita" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Berita</a>
                         <a href="#kegiatan" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Kegiatan</a>
                         <a href="#opini" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Opini</a>
                     </div>
                 </div>
                 
-                <a href="#bantuan" class="bg-primary text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-blue-700 transition-all active:scale-95">Pusat Bantuan</a>
+                <!-- Tombol Pusat Bantuan dengan Aksen Orange Terbaca -->
+                <a href="#bantuan" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Pusat Bantuan</a>
             </div>
 
             <!-- Hamburger Button (Mobile) -->
             <div class="md:hidden">
-                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="p-2 text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="p-2 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Poin 5 PRD) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 p-6 flex flex-col gap-4 font-bold text-gray-600">
-            <a href="#" class="text-primary">Beranda</a>
-            <a href="#sejarah">Sejarah</a>
-            <a href="#struktur">Struktur Organisasi</a>
-            <a href="#arsip">Arsip</a>
-            <hr>
-            <a href="#berita">Berita</a>
-            <a href="#kegiatan">Kegiatan</a>
-            <a href="#opini">Opini</a>
-            <a href="#bantuan" class="bg-primary text-white text-center py-4 rounded-2xl">Pusat Bantuan Pelajar</a>
+        <!-- Mobile Menu (Mobile) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-white/10 p-6 flex flex-col gap-4 font-bold text-blue-50">
+            <a href="#" class="text-white">Beranda</a>
+            <a href="#sejarah" class="hover:text-white">Sejarah</a>
+            <a href="#struktur" class="hover:text-white">Struktur Organisasi</a>
+            <a href="#arsip" class="hover:text-white">Arsip</a>
+            <hr class="border-white/10">
+            <a href="#berita" class="hover:text-white">Berita</a>
+            <a href="#kegiatan" class="hover:text-white">Kegiatan</a>
+            <a href="#opini" class="hover:text-white">Opini</a>
+            <a href="#bantuan" class="bg-accentOrange text-white text-center py-4 rounded-2xl">Pusat Bantuan Pelajar</a>
         </div>
     </nav>
 
@@ -139,7 +142,7 @@
         </div>
     </header>
 
-    <!-- SECTION: SEJARAH (Poin 1 PRD) -->
+    <!-- SECTION: SEJARAH -->
     <section id="sejarah" class="section-padding bg-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold text-primary mb-8 uppercase tracking-tighter">Sejarah & Perjalanan</h2>
@@ -149,7 +152,7 @@
         </div>
     </section>
 
-    <!-- SECTION: STRUKTUR ORGANISASI (Poin 4 PRD) -->
+    <!-- SECTION: STRUKTUR ORGANISASI -->
     <section id="struktur" class="section-padding bg-gray-50/50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -173,15 +176,15 @@
                 </div>
             </div>
 
-            <!-- Bidang-Bidang (Poin 4 PRD) -->
+            <!-- Bidang-Bidang -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Perkaderan</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang KDI</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang PIP</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang ASBO</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang PKK</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Keipmawatian</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Advokasi</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Perkaderan</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Kajian Dakwah Islam (KDI)</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Pengkajian Ilmu Pengetahuan (PIP)</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Apresiasi Seni Budaya dan Olahraga (Asbo)</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Pengembangan Kreatifitas dan Kewirausahaan</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Keipmawatian</div>
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Advokasi</div>
                 <div class="bg-gray-100 p-6 rounded-2xl border border-gray-200 font-bold text-sm text-center opacity-50 italic">Pusat Data Pengurus</div>
             </div>
         </div>
@@ -232,7 +235,7 @@
         </div>
     </section>
 
-    <!-- SECTION: ARSIP (Poin 1 & 5 PRD) -->
+    <!-- SECTION: ARSIP -->
     <section id="arsip" class="py-24 bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
@@ -241,9 +244,8 @@
                     <p class="text-gray-400 font-medium italic">Pusat berkas, administrasi, dan panduan organisasi.</p>
                 </div>
                 <div class="flex gap-4 w-full md:w-auto">
-                    <!-- Search Bar (Poin 5 PRD) -->
                     <input type="text" placeholder="Cari dokumen..." class="bg-white/10 border border-white/20 px-6 py-4 rounded-2xl w-full md:w-80 outline-none focus:bg-white/20 font-bold">
-                    <button class="bg-primary px-8 py-4 rounded-2xl font-bold hover:bg-blue-600">Cari</button>
+                    <button class="bg-primary px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 text-white">Cari</button>
                 </div>
             </div>
             
@@ -266,7 +268,7 @@
         </div>
     </section>
 
-    <!-- SECTION: PUSAT BANTUAN PELAJAR (Poin 2A PRD) -->
+    <!-- SECTION: PUSAT BANTUAN PELAJAR -->
     <section id="bantuan" class="section-padding bg-gray-50/50">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-4xl font-extrabold text-primary mb-4 uppercase tracking-tighter">Pusat Bantuan Pelajar</h2>
