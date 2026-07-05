@@ -44,10 +44,13 @@
     <!-- NAVIGASI (Menggunakan Biru Medium yang Lebih Cerah & Fresh) -->
     <nav class="sticky top-0 z-50 bg-primary border-b border-white/10 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
-            <!-- Logo (Kontras Tinggi) -->
+            <!-- Logo Resmi IPM Cileungsi yang Baru -->
             <a href="#" class="flex items-center space-x-3">
-                <div class="bg-white p-2 rounded-xl text-primary shadow-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div class="bg-white p-1 rounded-xl shadow-md w-12 h-12 flex items-center justify-center overflow-hidden">
+                    <img src="{{ asset('images/logo-ipm-cileungsi.png') }}" 
+                         alt="Logo IPM Cileungsi" 
+                         class="h-10 w-auto object-contain"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%231a73e8\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\'/></svg>';">
                 </div>
                 <div class="leading-none">
                     <span class="text-xl font-extrabold tracking-tighter text-white uppercase">IPM Cileungsi</span>
@@ -322,8 +325,12 @@
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-16 mb-20 text-left">
             <div class="md:col-span-2">
                 <div class="flex items-center space-x-3 mb-8">
-                    <div class="bg-primary p-2 rounded-xl text-white shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <!-- Footer Logo (Menggunakan Logo Resmi) -->
+                    <div class="bg-white p-1 rounded-xl shadow-md w-12 h-12 flex items-center justify-center overflow-hidden">
+                        <img src="{{ asset('images/logo-ipm-cileungsi.png') }}" 
+                             alt="Logo IPM Cileungsi" 
+                             class="h-10 w-auto object-contain"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%231a73e8\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\'/></svg>';">
                     </div>
                     <span class="text-2xl font-black text-primary uppercase tracking-tighter">IPM Cileungsi</span>
                 </div>
