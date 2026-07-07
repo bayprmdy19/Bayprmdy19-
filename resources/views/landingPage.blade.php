@@ -155,41 +155,72 @@
         </div>
     </section>
 
-    <!-- SECTION: STRUKTUR ORGANISASI -->
+    <!-- SECTION: STRUKTUR ORGANISASI (INTERAKTIF & DRILL-DOWN) -->
     <section id="struktur" class="section-padding bg-gray-50/50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-extrabold text-primary mb-4 uppercase tracking-tighter">Struktur Kepengurusan</h2>
-                <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">Pimpinan Umum & Bidang PC IPM Cileungsi</p>
+                <div class="w-20 h-1.5 bg-accentOrange mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 font-bold uppercase tracking-widest text-xs mt-4">Pimpinan Umum & Bidang PC IPM Cileungsi</p>
+                <p class="text-gray-400 text-sm italic mt-2">Klik pada setiap pengurus atau bidang untuk melihat detail anggota dan fokus gerakan</p>
             </div>
             
             <!-- Pimpinan Umum -->
             <div class="grid md:grid-cols-3 gap-6 mb-16">
-                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary transition-all group">
+                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
                     <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">Ketua Umum</p>
                     <h4 class="text-xl font-bold text-gray-800">Zaki Muhammad</h4>
                 </div>
-                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary transition-all group">
+                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
                     <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">Sekretaris Umum</p>
                     <h4 class="text-xl font-bold text-gray-800">Ahmad Faiz</h4>
                 </div>
-                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary transition-all group">
+                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
                     <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">Bendahara Umum</p>
                     <h4 class="text-xl font-bold text-gray-800">Siti Aisyah</h4>
                 </div>
             </div>
 
             <!-- Bidang-Bidang -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Perkaderan</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Kajian Dakwah Islam (KDI)</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Pengkajian Ilmu Pengetahuan (PIP)</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Apresiasi Seni Budaya dan Olahraga (Asbo)</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Pengembangan Kreatifitas dan Kewirausahaan</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Keipmawatian</div>
-                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-white transition-all text-primary">Bidang Advokasi</div>
-                <div class="bg-gray-100 p-6 rounded-2xl border border-gray-200 font-bold text-sm text-center opacity-50 italic">Pusat Data Pengurus</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <button onclick="showDrillDown('perkaderan')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Perkaderan</button>
+                <button onclick="showDrillDown('kdi')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Kajian Dakwah Islam (KDI)</button>
+                <button onclick="showDrillDown('pip')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang PIP</button>
+                <button onclick="showDrillDown('asbo')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Apresiasi Seni Budaya dan Olahraga (Asbo)</button>
+                <button onclick="showDrillDown('pkk')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Pengembangan Kreatifitas dan Kewirausahaan</button>
+                <button onclick="showDrillDown('keipmawatian')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Keipmawatian</button>
+                <button onclick="showDrillDown('advokasi')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Advokasi</button>
+                <div class="bg-gray-100 p-6 rounded-2xl border border-gray-200 font-bold text-sm text-center opacity-50 flex items-center justify-center italic text-gray-500 select-none">Pusat Data Pengurus</div>
             </div>
+
+            <!-- Panel Detail Drill-Down Dinamis -->
+            <div id="drilldown-panel" class="hidden bg-white border border-gray-100 rounded-[2.5rem] shadow-xl p-8 md:p-12 transition-all duration-500 transform translate-y-4 opacity-0 max-w-4xl mx-auto">
+                <div class="flex justify-between items-start border-b border-gray-100 pb-6 mb-6">
+                    <div>
+                        <span id="dd-badge" class="bg-blue-100 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">BIDANG</span>
+                        <h3 id="dd-title" class="text-3xl font-extrabold text-primary mt-2">Nama Struktur</h3>
+                    </div>
+                    <button onclick="closeDrillDown()" class="text-gray-400 hover:text-gray-600 bg-gray-50 p-2 rounded-full transition-colors outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Struktur Anggota</h5>
+                        <ul id="dd-members" class="space-y-3 text-gray-700 font-medium">
+                            <!-- Diisi via JS -->
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Fokus Gerakan & Program</h5>
+                        <p id="dd-desc" class="text-gray-500 leading-relaxed text-sm mb-4">
+                            <!-- Diisi via JS -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -376,5 +407,132 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT LOGIC UNTUK INTERAKTIF DRILL-DOWN -->
+    <script>
+        // Repositori Data Pengurus Dinamis
+        const strukturData = {
+            umum: {
+                title: "Pimpinan Umum Harian",
+                badge: "Inti Organisasi",
+                desc: "Pimpinan Harian bertanggung jawab penuh atas arah kebijakan organisasi, koordinasi internal antar bidang, serta representasi eksternal Pimpinan Cabang IPM Cileungsi dalam gerakan dakwah pelajar.",
+                members: [
+                    "<strong>Ketua Umum:</strong> Zaki Muhammad",
+                    "<strong>Sekretaris Umum:</strong> Ahmad Faiz",
+                    "<strong>Bendahara Umum:</strong> Siti Aisyah"
+                ]
+            },
+            perkaderan: {
+                title: "Bidang Perkaderan",
+                badge: "Jantung Organisasi",
+                desc: "Fokus utama pada pengelolaan sistem kaderisasi, pelaksanaan Pelatihan Taruna Melati (TM), serta pemetaan potensi kader secara berkala di seluruh lingkungan cabang Cileungsi.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Rahmawati Putri",
+                    "<strong>Sekretaris Bidang:</strong> Budi Santoso",
+                    "<strong>Anggota:</strong> Dedi Dermawan, Citra Lestari"
+                ]
+            },
+            kdi: {
+                title: "Bidang Kajian Dakwah Islam (KDI)",
+                badge: "Spiritualitas Pelajar",
+                desc: "Bertanggung jawab menyelenggarakan kajian keislaman kontemporer, pembentukan komunitas literasi Al-Qur'an, serta dakwah kreatif digital khusus kalangan remaja.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Lukman Hakim",
+                    "<strong>Sekretaris Bidang:</strong> Hani Kamila",
+                    "<strong>Anggota:</strong> Farhan Anshori, Yusuf Mansur"
+                ]
+            },
+            pip: {
+                title: "Bidang Pengkajian Ilmu Pengetahuan (PIP)",
+                badge: "Literasi & Riset",
+                desc: "Mengembangkan iklim keilmuan, riset pelajar, pengelolaan mading digital, serta kampanye literasi kritis bagi pelajar Muhammadiyah Cileungsi.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Rizky Ramadhan",
+                    "<strong>Sekretaris Bidang:</strong> Anisa Fitri",
+                    "<strong>Anggota:</strong> Gilang Permana, Rania Syifa"
+                ]
+            },
+            asbo: {
+                title: "Bidang Apresiasi Seni Budaya dan Olahraga (ASBO)",
+                badge: "Kreativitas & Bakat",
+                desc: "Wadah pengembangan minat bakat, penyelenggaraan kompetisi olahraga persahabatan, apresiasi musik islami, serta pembinaan apresiasi budaya kreatif.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Fathur Rahman",
+                    "<strong>Sekretaris Bidang:</strong> Nabila Azzahra",
+                    "<strong>Anggota:</strong> Kevin Sanjaya, Giska Amelia"
+                ]
+            },
+            pkk: {
+                title: "Bidang Pengembangan Kreatifitas & Kewirausahaan (PKK)",
+                badge: "Kemandirian Ekonomi",
+                desc: "Mendorong inkubasi bisnis mandiri pelajar, pelatihan keterampilan digital *entrepreneurship*, serta pengelolaan unit usaha organisasi demi kemandirian finansial.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Dimas Prayoga",
+                    "<strong>Sekretaris Bidang:</strong> Eka Wahyuni",
+                    "<strong>Anggota:</strong> Hendra Wijaya, Sasa Sabrina"
+                ]
+            },
+            keipmawatian: {
+                title: "Bidang Keipmawatian",
+                badge: "Pemberdayaan Perempuan",
+                desc: "Fokus terhadap pendampingan isu perempuan, kesehatan reproduksi remaja putri, kepemimpinan publik bagi ipmawati, serta integrasi dengan Ruang Aman.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Wardah Maulida",
+                    "<strong>Sekretaris Bidang:</strong> Alya Nurul",
+                    "<strong>Anggota:</strong> Tyas Utami, Mega Buana"
+                ]
+            },
+            advokasi: {
+                title: "Bidang Advokasi Pelajar",
+                badge: "Pelindung Hak Pelajar",
+                desc: "Mengelola integrasi sistem Pusat Bantuan Pelajar, edukasi hak anak, pencegahan tindakan perundungan (*bullying*), serta pendampingan psikososial dasar bagi pelajar.",
+                members: [
+                    "<strong>Ketua Bidang:</strong> Teguh Iman",
+                    "<strong>Sekretaris Bidang:</strong> Larasati Dwi",
+                    "<strong>Anggota:</strong> Adi Saputra, Fahmi Idris"
+                ]
+            }
+        };
+
+        function showDrillDown(key) {
+            const data = strukturData[key];
+            if (!data) return;
+
+            const panel = document.getElementById('drilldown-panel');
+            
+            // Set data ke komponen HTML
+            document.getElementById('dd-title').innerText = data.title;
+            document.getElementById('dd-badge').innerText = data.badge;
+            document.getElementById('dd-desc').innerText = data.desc;
+            
+            // Render daftar anggota
+            const membersList = document.getElementById('dd-members');
+            membersList.innerHTML = '';
+            data.members.forEach(member => {
+                const li = document.createElement('li');
+                li.className = 'bg-gray-50 p-3 rounded-xl border border-gray-100 text-sm';
+                li.innerHTML = member;
+                membersList.appendChild(li);
+            });
+
+            // Animasi kemunculan panel detail
+            panel.classList.remove('hidden');
+            setTimeout(() => {
+                panel.classList.remove('translate-y-4', 'opacity-0');
+                panel.classList.add('translate-y-0', 'opacity-100');
+            }, 50);
+
+            // Otomatis scroll fokus ke panel detail agar terlihat di layar kecil
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function closeDrillDown() {
+            const panel = document.getElementById('drilldown-panel');
+            panel.classList.remove('translate-y-0', 'opacity-100');
+            panel.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => {
+                panel.classList.add('hidden');
+            }, 300);
+        }
+    </script>
 </body>
 </html>
