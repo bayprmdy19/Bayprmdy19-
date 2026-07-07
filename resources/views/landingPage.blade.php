@@ -136,8 +136,12 @@
                 </div>
             </div>
             <div class="relative animate-in fade-in slide-in-from-right duration-1000">
-                <div class="bg-gray-100 aspect-[4/5] rounded-[4rem] shadow-2xl border-[12px] border-white rotate-2 overflow-hidden flex items-center justify-center text-gray-300 font-bold italic text-xl px-12 text-center">
-                    
+                <!-- Frame Gambar Utama Lanskap (Mendukung file hero-ipm.jpg Anda) -->
+                <div class="bg-gray-100 aspect-[4/3] rounded-[4rem] shadow-2xl border-[12px] border-white rotate-2 overflow-hidden flex items-center justify-center text-gray-300 font-bold italic text-xl text-center">
+                    <img src="{{ asset('images/hero-ipm.jpg') }}" 
+                         alt="Pelantikan PC IPM Cileungsi" 
+                         class="w-full h-full object-cover"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%231a73e8\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect width=\'18\' height=\'18\' x=\'3\' y=\'3\' rx=\'2\' ry=\'2\'/><circle cx=\'9\' cy=\'9\' r=\'2\'/><path d=\'m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\'/></svg>';">
                 </div>
                 <div class="absolute -bottom-8 -left-8 bg-accentGreen p-8 rounded-[2.5rem] shadow-xl text-white hidden md:block border-4 border-white">
                     <p class="text-4xl font-black leading-none mb-1">10+</p>
@@ -339,7 +343,7 @@
                 </div>
 
                 <!-- Formulir Anonim -->
-                <div class="bg-white p-12 rounded-[3.5rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all group">
+                <div class="bg-white p-12 rounded-[3.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
                     <div class="w-16 h-16 bg-gray-900 text-white rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88 1.45 1.45"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><circle cx="12" cy="12" r="3"/><path d="m2 2 20 20"/></svg>
                     </div>
@@ -353,7 +357,7 @@
         </div>
     </section>
 
-    <!-- FOOTER (Poin 2B PRD) -->
+    <!-- FOOTER -->
     <footer class="bg-gray-50 border-t border-gray-100 pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-16 mb-20 text-left">
             <div class="md:col-span-2">
@@ -409,7 +413,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC UNTUK INTERAKTIF DRILL-DOWN -->
+    <!-- JAVASCRIPT LOGIC UNTUK INTERAKTIF DRILL-DOWN & MOBILE MENU -->
     <script>
         // Repositori Data Pengurus Dinamis
         const strukturData = {
@@ -426,7 +430,7 @@
             perkaderan: {
                 title: "Bidang Perkaderan",
                 badge: "Jantung Organisasi",
-                desc: "Fokus utama pada pengelolaan sistem kaderisasi, pelaksanaan Pelatihan Taruna Melati (TM), serta pemetaan potensi kader secara berkala di seluruh lingkungan cabang Cileungsi.",
+                desc: "Fokus utama pada pengelolaan sistem kaderisasi, pelaksanaan Taruna Melati, serta pemetaan potensi kader secara berkala di seluruh lingkungan cabang Cileungsi.",
                 members: [
                     "<strong>Ketua Bidang:</strong> Rahmawati Putri",
                     "<strong>Sekretaris Bidang:</strong> Budi Santoso",
@@ -456,7 +460,7 @@
             asbo: {
                 title: "Bidang Apresiasi Seni Budaya dan Olahraga (ASBO)",
                 badge: "Kreativitas & Bakat",
-                desc: "Wadah pengembangan minat bakat, penyelenggaraan kompetisi olahraga persahabatan, apresiasi musik islami, serta pembinaan apresiasi budaya kreatif.",
+                desc: "Wadah pengembangan minat bakat, penyelenggaraan kompetisi olahraga persahabatan, seni musik islami, serta apresiasi budaya kreatif.",
                 members: [
                     "<strong>Ketua Bidang:</strong> Fathur Rahman",
                     "<strong>Sekretaris Bidang:</strong> Nabila Azzahra",
@@ -466,7 +470,7 @@
             pkk: {
                 title: "Bidang Pengembangan Kreatifitas & Kewirausahaan (PKK)",
                 badge: "Kemandirian Ekonomi",
-                desc: "Mendorong inkubasi bisnis mandiri pelajar, pelatihan keterampilan digital *entrepreneurship*, serta pengelolaan unit usaha organisasi demi kemandirian finansial.",
+                desc: "Mendorong inkubasi bisnis mandiri pelajar, pelatihan keterampilan digital *entrepreneurship*, serta pengelolaan unit usaha organisasi.",
                 members: [
                     "<strong>Ketua Bidang:</strong> Dimas Prayoga",
                     "<strong>Sekretaris Bidang:</strong> Eka Wahyuni",
@@ -486,7 +490,7 @@
             advokasi: {
                 title: "Bidang Advokasi Pelajar",
                 badge: "Pelindung Hak Pelajar",
-                desc: "Mengelola integrasi sistem Pusat Bantuan Pelajar, edukasi hak anak, pencegahan tindakan perundungan (*bullying*), serta pendampingan psikososial dasar bagi pelajar.",
+                desc: "Mengelola integrasi sistem Pusat Bantuan Pelajar, edukasi hak anak, pencegahan *bullying* (perundungan), serta pendampingan hukum dasar bagi pelajar.",
                 members: [
                     "<strong>Ketua Bidang:</strong> Teguh Iman",
                     "<strong>Sekretaris Bidang:</strong> Larasati Dwi",
@@ -523,7 +527,7 @@
                 panel.classList.add('translate-y-0', 'opacity-100');
             }, 50);
 
-            // Otomatis scroll fokus ke panel detail agar terlihat di layar kecil
+            // Otomatis scroll fokus ke panel detail
             panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
@@ -536,5 +540,6 @@
             }, 300);
         }
     </script>
+
 </body>
 </html>
