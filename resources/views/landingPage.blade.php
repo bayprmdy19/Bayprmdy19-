@@ -90,7 +90,7 @@
                 
                 <!-- Tombol Pusat Bantuan dengan Aksen Orange Terbaca -->
                 <a href="#bantuan" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Pusat Bantuan</a>
-                <a href="{{ route('admin.login.form') }}" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Login</a>
+                <a href="{{ route('admin.login') }}" class="border border-white text-white px-6 py-2.5 rounded-full hover:shadow-x transition-all hover:scale-105 active:scale-95">Login</a>
 
             </div>
 
@@ -132,7 +132,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-5">
                     <a href="#bantuan" class="bg-primary text-white text-center px-10 py-5 rounded-[2rem] font-extrabold text-lg shadow-2xl shadow-blue-200 hover:scale-105 transition-all">Pusat Bantuan Pelajar</a>
-                    <a href="#arsip" class="bg-white border-2 border-gray-100 text-gray-700 text-center px-10 py-5 rounded-[2rem] font-extrabold text-lg hover:bg-gray-50 transition-all">Jelajahi Arsip</a>
+                    <a href="#arsip" class="bg-white border-2 border-blue-150 text-gray-700 text-center px-10 py-5 rounded-[2rem] font-extrabold text-lg hover:bg-gray-50 transition-all">Jelajahi Arsip</a>
                 </div>
             </div>
             <div class="relative animate-in fade-in slide-in-from-right duration-1000">
