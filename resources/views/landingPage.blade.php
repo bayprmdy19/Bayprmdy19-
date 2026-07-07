@@ -90,6 +90,8 @@
                 
                 <!-- Tombol Pusat Bantuan dengan Aksen Orange Terbaca -->
                 <a href="#bantuan" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Pusat Bantuan</a>
+                <a href="{{ route('admin.login.form') }}" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Login</a>
+
             </div>
 
             <!-- Hamburger Button (Mobile) -->
