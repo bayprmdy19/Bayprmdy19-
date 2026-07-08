@@ -51,7 +51,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
                     Dashboard
                 </a>
-                <a href="#" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-gray-600 hover:bg-gray-100 hover:text-primary">
+                <a href="{{ route('berita.index') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-gray-600 hover:bg-gray-100 hover:text-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
                     Berita
                 </a>
