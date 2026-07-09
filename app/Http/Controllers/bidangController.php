@@ -11,7 +11,9 @@ class BidangController extends Controller
     {
         // Menampilkan halaman bidang
         // Mengambil semua data bidang dari database dan mengurutkannya secara ascending
-        $bidangs = Bidang::all()->sortBy('nama'); 
+        $bidangs = Bidang::query()
+        ->orderBy('nama', 'asc')
+        ->paginate(10); 
         return view('admin.bidang.index', compact('bidangs'));
     }
 
