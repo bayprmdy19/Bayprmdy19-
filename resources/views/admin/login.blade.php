@@ -67,7 +67,8 @@
                         <p class="mt-2 text-sm font-medium text-gray-500">Gunakan akun admin yang nanti kamu sambungkan ke Laravel Auth.</p>
                     </div>
 
-                    <form action="{{ url('/admin') }}" method="GET" class="space-y-5">
+                    <form action="{{ route('authenticate') }}" method="POST" class="space-y-5">
+                        @csrf
                         <div>
                             <label for="email" class="mb-2 block text-sm font-extrabold text-gray-700">Email</label>
                             <input id="email" name="email" type="email" autocomplete="email" placeholder="admin@ipmcileungsi.or.id" class="w-full rounded-2xl border border-gray-200 px-4 py-4 text-sm font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-blue-100">
@@ -81,9 +82,12 @@
                             <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" class="w-full rounded-2xl border border-gray-200 px-4 py-4 text-sm font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-blue-100">
                         </div>
 
-                        <label class="flex items-center gap-3 text-sm font-bold text-gray-600">
-                            <input type="checkbox" class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary">
-                            Ingat saya
+                        <label>
+                            @if ($errors->any())
+                                <div class="mb-2 mt-2 text-sm font-bold text-red-600 bg-red-100 p-3 rounded-lg">
+                                    {{ $errors->first() }}
+                                </div>
+                            @endif
                         </label>
 
                         <button type="submit" class="w-full rounded-2xl bg-primary px-5 py-4 text-sm font-extrabold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-600 active:scale-[0.99]">Masuk ke Dashboard</button>
