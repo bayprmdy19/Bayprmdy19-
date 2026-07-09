@@ -116,7 +116,7 @@
             <a href="#kegiatan" class="hover:text-white">Kegiatan</a>
             <a href="#opini" class="hover:text-white">Opini</a>
             <a href="#bantuan" class="bg-accentOrange text-white text-center py-4 rounded-2xl">Pusat Bantuan Pelajar</a>
-            <a href="{{ route('admin.login') }}" class="border border-white text-white text-center py-4 rounded-2xl">Login Admin</a>
+            <a href="{{ route('login') }}" class="border border-white text-white text-center py-4 rounded-2xl">Login Admin</a>
         </div>
     </nav>
 

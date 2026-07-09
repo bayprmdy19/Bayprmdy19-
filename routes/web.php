@@ -29,12 +29,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/anggota/{id}/edit', [anggotaController::class, 'edit'])->name('admin.anggota.edit');
     Route::put('/admin/anggota/{id}', [anggotaController::class, 'update'])->name('admin.anggota.update');
     Route::delete('/admin/anggota/{id}', [anggotaController::class, 'destroy'])->name('admin.anggota.destroy');
+
+    // Routes untuk mengelola berita
+    Route::get('/admin/berita', [beritaController::class, 'index'])->name('berita.index');
+    Route::get('/admin/berita/create', [beritaController::class, 'create'])->name('berita.create');
+    Route::post('/admin/berita', [beritaController::class, 'store'])->name('berita.store');
+    Route::get('/admin/berita/{id}/edit', [beritaController::class, 'edit'])->name('berita.edit');
+    Route::put('/admin/berita/{id}', [beritaController::class, 'update'])->name('berita.update');
+    Route::delete('/admin/berita/{id}', [beritaController::class, 'destroy'])->name('berita.destroy');
+
+    
 });
 
 Route::get('/login', [authController::class, 'login'])->name('login');
 Route::post('/login', [authController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [authController::class, 'logout'])->name('logout');
 
-Route::get('/admin/berita', [beritaController::class, 'index'])->name('berita.index');
-Route::get('/admin/berita/create', [beritaController::class, 'create'])->name('berita.create');
-Route::post('/admin/berita', [beritaController::class, 'store'])->name('berita.store');
