@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Web IPM Cileungsi | Beranda</title>
     
+    <!-- Meta CSRF Token untuk keamanan pengiriman form Laravel AJAX -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <!-- Font Utama: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,8 +93,7 @@
                 
                 <!-- Tombol Pusat Bantuan dengan Aksen Orange Terbaca -->
                 <a href="#bantuan" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Pusat Bantuan</a>
-                <a href="{{ route('admin.login') }}" class="border border-white text-white px-6 py-2.5 rounded-full hover:shadow-x transition-all hover:scale-105 active:scale-95">Login</a>
-
+                <a href="{{ route('admin.login') }}" class="border border-white text-white px-6 py-2.5 rounded-full hover:shadow-xl transition-all hover:scale-105 active:scale-95">Login</a>
             </div>
 
             <!-- Hamburger Button (Mobile) -->
@@ -113,6 +115,7 @@
             <a href="#kegiatan" class="hover:text-white">Kegiatan</a>
             <a href="#opini" class="hover:text-white">Opini</a>
             <a href="#bantuan" class="bg-accentOrange text-white text-center py-4 rounded-2xl">Pusat Bantuan Pelajar</a>
+            <a href="{{ route('admin.login') }}" class="border border-white text-white text-center py-4 rounded-2xl">Login Admin</a>
         </div>
     </nav>
 
@@ -375,9 +378,23 @@
                     Pimpinan Cabang Ikatan Pelajar Muhammadiyah Cileungsi. Berdaya bersama mewujudkan nuansa baru bagi pelajar berkemajuan.
                 </p>
                 <div class="flex gap-4">
-                    <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+                    <!-- Link Aktif ke Instagram Resmi PC IPM Cileungsi -->
+                    <a href="https://www.instagram.com/ipmcileungsi" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="w-12 h-12 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-primary hover:bg-[#e1306c] hover:text-white hover:border-[#e1306c] transition-all" 
+                       title="Kunjungi Instagram IPM Cileungsi">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                    </div>
+                    </a>
+
+                    <!-- Link Aktif ke YouTube Resmi PC IPM Cileungsi -->
+                    <a href="https://www.youtube.com/@ipmcileungsi592" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="w-12 h-12 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center text-red-600 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all" 
+                       title="Kunjungi YouTube Resmi IPM Cileungsi">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                    </a>
                 </div>
             </div>
             
