@@ -40,7 +40,7 @@ class BidangController extends Controller
         $bidang->save();
 
         // Redirect ke halaman index bidang dengan pesan sukses
-        return redirect()->route('bidang.index')->with('success', 'bidang berhasil ditambahkan.');
+        return redirect()->route('admin.bidang.index')->with('success', 'bidang berhasil ditambahkan.');
     }
 
     public function show($id)
@@ -74,7 +74,7 @@ class BidangController extends Controller
         $bidang->save();
 
         // Redirect ke halaman index bidang dengan pesan sukses
-        return redirect()->route('bidang.index')->with('success', 'bidang berhasil diperbarui.');
+        return redirect()->route('admin.bidang.index')->with('success', 'bidang berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -84,6 +84,6 @@ class BidangController extends Controller
         $bidang->delete();
 
         // Redirect ke halaman index bidang dengan pesan sukses
-        return redirect()->route('bidang.index')->with('success', 'bidang berhasil dihapus.');
+        return redirect()->route('admin.bidang.index')->with('success', 'bidang berhasil dihapus.');
     }
 }

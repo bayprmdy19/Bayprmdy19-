@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1 class="mb-4 text-xl font-bold">Edit Bidang</h1>
-    <form action="{{ route('bidang.update', $bidang->id) }}" method="POST">
+    <form action="{{ route('admin.bidang.update', $bidang->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -19,7 +19,7 @@
             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{ $bidang->deskripsi }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="{{ route('bidang.index') }}" class="btn btn-secondary">Batal</a>
+        <a href="{{ route('admin.bidang.index') }}" class="btn btn-secondary">Batal</a>
     </form>
 </div>
 @endsection

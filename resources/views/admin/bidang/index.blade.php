@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="mb-4 text-xl font-bold">Daftar bidang</h1>
-        <a href="{{ route('bidang.create') }}" class="btn btn-primary mb-3">Tambah bidang</a>
+        <a href="{{ route('admin.bidang.create') }}" class="btn btn-primary mb-3">Tambah bidang</a>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 
@@ -14,7 +14,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
+                                    <th>Nama Bidang</th>
                                     <th>Tipe</th>
                                     <th>Deskripsi</th>
                                     <th>Aksi</th>

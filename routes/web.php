@@ -14,13 +14,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [authController::class, 'index'])->name('admin.dashboard');
 
     // Routes untuk mengelola bidang
-    Route::get('/admin/bidang', [BidangController::class, 'index'])->name('bidang.index');
-    Route::get('/admin/bidang/create', [BidangController::class, 'create'])->name('bidang.create');
-    Route::post('/admin/bidang', [BidangController::class, 'store'])->name('bidang.store');
-    Route::get('/admin/bidang/{id}', [BidangController::class, 'show'])->name('bidang.show');
-    Route::get('/admin/bidang/{id}/edit', [BidangController::class, 'edit'])->name('bidang.edit');
-    Route::put('/admin/bidang/{id}', [BidangController::class, 'update'])->name('bidang.update');
-    Route::delete('/admin/bidang/{id}', [BidangController::class, 'destroy'])->name('bidang.destroy');
+    Route::get('/admin/bidang', [BidangController::class, 'index'])->name('admin.bidang.index');
+    Route::get('/admin/bidang/create', [BidangController::class, 'create'])->name('admin.bidang.create');
+    Route::post('/admin/bidang', [BidangController::class, 'store'])->name('admin.bidang.store');
+    Route::get('/admin/bidang/{id}', [BidangController::class, 'show'])->name('admin.bidang.show');
+    Route::get('/admin/bidang/{id}/edit', [BidangController::class, 'edit'])->name('admin.bidang.edit');
+    Route::put('/admin/bidang/{id}', [BidangController::class, 'update'])->name('admin.bidang.update');
+    Route::delete('/admin/bidang/{id}', [BidangController::class, 'destroy'])->name('admin.bidang.destroy');
 
     // Routes untuk mengelola anggota
     Route::get('/admin/anggota', [anggotaController::class, 'index'])->name('admin.anggota.index');

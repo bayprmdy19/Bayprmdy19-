@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="mb-4 text-xl font-bold">Data Bidang</h1>
     <div class="mb-4">
-        <a href="{{ route('bidang.index') }}" class="btn btn-secondary">Kembali ke Daftar Bidang</a>
+        <a href="{{ route('admin.bidang.index') }}" class="btn btn-secondary">Kembali ke Daftar Bidang</a>
     </div>
     <div class="card p-4">
         <h2 class="text-lg font-bold mb-2">Nama Bidang:</h2>
