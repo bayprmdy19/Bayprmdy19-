@@ -13,8 +13,8 @@ class beritaController extends Controller
      */
     public function index()
     {
-        // Mengambil semua data berita terbaru berdasarkan database Anda
-        $beritas = Berita::query()->latest()->paginate(10); // Menampilkan 10 berita per halaman
+        // Mengambil semua data berita terbaru dengan pagination 10 data per halaman
+        $beritas = Berita::query()->latest()->paginate(10);
         return view('admin.berita.index', compact('beritas'));
     }
 
@@ -31,19 +31,18 @@ class beritaController extends Controller
      */
     public function store(Request $request)
     {
-        // 1. Validasi input dari form (Disesuaikan dengan kolom: judul, isi, gambar)
+        // 1. Validasi input: Pastikan form mengirimkan parameter 'judul', 'isi', dan 'gambar'
         $request->validate([
             'judul'  => 'required|string|max:255',
             'isi'    => 'required|string',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // 2. Menyimpan berita baru ke database
+        // 2. Menyimpan data baru ke database
         $berita = new Berita();
         $berita->judul = $request->input('judul');
         $berita->isi   = $request->input('isi');
 
-        // Proses unggah gambar jika ada file gambar yang dipilih
         if ($request->hasFile('gambar')) {
             $berita->gambar = $request->file('gambar')->store('berita', 'public');
         } else {
@@ -52,7 +51,7 @@ class beritaController extends Controller
 
         $berita->save();
 
-        // 3. Redirect ke halaman index berita admin dengan pesan sukses
+        // 3. Redirect ke halaman index dengan nama rute asli Anda
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan.');
     }
 
@@ -72,7 +71,6 @@ class beritaController extends Controller
     {
         $berita = Berita::findOrFail($id);
 
-        // Validasi input
         $request->validate([
             'judul'  => 'required|string|max:255',
             'isi'    => 'required|string',
@@ -83,7 +81,7 @@ class beritaController extends Controller
         $berita->isi   = $request->input('isi');
 
         if ($request->hasFile('gambar')) {
-            // Hapus gambar lama jika ada untuk menghemat kapasitas penyimpanan
+            // Hapus gambar lama jika ada untuk menghemat penyimpanan server
             if ($berita->gambar) {
                 Storage::disk('public')->delete($berita->gambar);
             }
@@ -102,7 +100,6 @@ class beritaController extends Controller
     {
         $berita = Berita::findOrFail($id);
 
-        // Hapus file gambar dari server jika ada
         if ($berita->gambar) {
             Storage::disk('public')->delete($berita->gambar);
         }
