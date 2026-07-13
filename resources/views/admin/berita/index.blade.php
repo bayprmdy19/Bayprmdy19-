@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="mb-4 text-xl font-bold">Daftar berita</h1>
-        <a href="{{ route('berita.create') }}" class="btn btn-primary mb-3">Tambah berita</a>
+        <a href="{{ route('admin.berita.create') }}" class="btn btn-primary mb-3">Tambah berita</a>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 

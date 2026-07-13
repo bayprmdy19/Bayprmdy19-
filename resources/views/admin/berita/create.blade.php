@@ -15,7 +15,7 @@
 
         <!-- 1. Perbaikan: Ditambahkan enctype="multipart/form-data" agar upload gambar berfungsi -->
         <!-- 2. Perbaikan: Menggunakan rute yang benar dengan awalan admin. -->
-        <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
 
             <!-- Baris Judul Berita -->
@@ -50,7 +50,7 @@
 
             <!-- Tombol Navigasi Batal & Simpan -->
             <div class="flex items-center gap-4 pt-6 border-t border-gray-100 justify-end">
-                <a href="{{ route('berita.index') }}" class="px-6 py-4 rounded-2xl font-bold text-sm text-gray-500 hover:bg-gray-100 transition-all">Batal</a>
+                <a href="{{ route('admin.berita.index') }}" class="px-6 py-4 rounded-2xl font-bold text-sm text-gray-500 hover:bg-gray-100 transition-all">Batal</a>
                 <button type="submit" class="bg-primary text-white px-8 py-4 rounded-2xl font-bold text-sm hover:shadow-xl hover:shadow-blue-200 transition-all active:scale-95 flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
                     Submit Berita
