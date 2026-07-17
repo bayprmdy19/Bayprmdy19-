@@ -11,6 +11,8 @@ use App\Http\Controllers\anggotaController;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::middleware('auth')->group(function () {
+    // PERBAIKAN: Menambahkan rute /admin murni agar tidak memicu error 404 saat diklik dari sidebar
+    Route::get('/admin', [authController::class, 'index']);
     Route::get('/admin/dashboard', [authController::class, 'index'])->name('admin.dashboard');
 
     // Routes untuk mengelola bidang

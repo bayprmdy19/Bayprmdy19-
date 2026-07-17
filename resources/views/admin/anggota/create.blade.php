@@ -18,8 +18,8 @@
             <input type="text" class="form-control" id="no_telp" name="no_telp" required>
         </div>
         <div class="mb-3">
-            <label for="bidang_id" class="form-label">Bidang</label>
-            <select class="form-control" id="bidang_id" name="bidang_id" required>
+            <label for="bidang" class="form-label">Bidang</label>
+            <select class="form-control" id="bidang" name="bidang" required>
                 <option value="">Pilih Bidang</option>
                 @foreach ($bidangs as $bidang)
                     <option value="{{ $bidang['id'] }}">{{ $bidang['nama'] }}</option>

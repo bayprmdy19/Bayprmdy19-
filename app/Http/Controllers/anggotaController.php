@@ -32,7 +32,7 @@ class anggotaController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'no_telp' => 'required',
-            'bidang_id' => 'required|exists:bidang,id'
+            'bidang' => 'required|exists:bidang,id'
         ]);
 
         Anggota::create($request->all());
@@ -54,7 +54,7 @@ class anggotaController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'no_telp' => 'required',
-            'bidang_id' => 'required|exists:bidang,id'
+            'bidang' => 'required|exists:bidang,id'
         ]);
 
         $anggota = Anggota::findOrFail($id);

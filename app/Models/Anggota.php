@@ -13,6 +13,7 @@ class Anggota extends Model
         'nama',
         'alamat',
         'no_telp',
+        'bidang_id',
     ];
 
     public function bidang(): BelongsTo
