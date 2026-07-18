@@ -42,22 +42,22 @@
 </head>
 <body class="bg-slate-50 min-h-screen flex flex-col justify-between text-gray-900 font-sans hero-pattern antialiased">
 
-    <!-- NAVBAR (Professional Transparent Backdrop Blur) -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-150 py-4 transition-all">
+    <!-- NAVBAR (Matching Landing Page Blue) -->
+    <nav class="sticky top-0 z-50 py-4 transition-all bg-primary border-b border-white/10 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="{{ route('landing') }}" class="flex items-center space-x-3 group">
-                <div class="bg-primary/5 p-1.5 rounded-xl w-10 h-10 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-200">
+                <div class="bg-white/20 p-1.5 rounded-xl w-10 h-10 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-200">
                     <img src="{{ asset('images/logo-ipm-cileungsi.png') }}" 
                          alt="Logo IPM Cileungsi" 
                          class="h-8 w-auto object-contain"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2050/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%231a73e8\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\'/></svg>';">
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2050/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ffffff\' stroke-width=\'2.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\'/></svg>';">
                 </div>
                 <div class="leading-none">
-                    <span class="font-extrabold text-sm uppercase tracking-tight text-gray-800">IPM Cileungsi</span>
-                    <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Portal Bantuan</p>
+                    <span class="font-extrabold text-sm uppercase tracking-tight text-white">IPM Cileungsi</span>
+                    <p class="text-[9px] font-bold text-blue-200 uppercase tracking-widest">Portal Bantuan</p>
                 </div>
             </a>
-            <a href="{{ route('landing') }}" class="text-xs font-bold text-gray-600 hover:text-primary bg-gray-100 hover:bg-blue-50 px-4 py-2.5 rounded-full transition-all flex items-center gap-2">
+            <a href="{{ route('landing') }}" class="text-xs font-bold text-white bg-white/20 hover:bg-white/30 border border-white/30 px-4 py-2.5 rounded-full transition-all flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                 Kembali ke Beranda
             </a>
