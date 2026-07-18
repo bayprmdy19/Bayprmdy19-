@@ -6,9 +6,14 @@ use App\Http\Controllers\beritaController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\anggotaController;
+use App\Http\Controllers\BantuanController;
 
 // Menghubungkan URL root (/) ke method index di LandingController
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+
+// Routes untuk Pusat Bantuan Pelajar
+Route::get('/bantuan', [BantuanController::class, 'create'])->name('bantuan.create');
+Route::post('/bantuan', [BantuanController::class, 'store'])->name('bantuan.store');
 
 Route::middleware('auth')->group(function () {
     // PERBAIKAN: Menambahkan rute /admin murni agar tidak memicu error 404 saat diklik dari sidebar
@@ -39,6 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/berita/{id}/edit', [beritaController::class, 'edit'])->name('admin.berita.edit');
     Route::put('/admin/berita/{id}', [beritaController::class, 'update'])->name('admin.berita.update');
     Route::delete('/admin/berita/{id}', [beritaController::class, 'destroy'])->name('admin.berita.destroy');
+
+    // Routes untuk mengelola Bantuan Pelajar
+    Route::get('/admin/bantuan', [BantuanController::class, 'index'])->name('admin.bantuan.index');
+    Route::delete('/admin/bantuan/{id}', [BantuanController::class, 'destroy'])->name('admin.bantuan.destroy');
 });
 
 Route::get('/login', [authController::class, 'login'])->name('login');
