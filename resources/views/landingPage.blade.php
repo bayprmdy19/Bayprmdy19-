@@ -255,28 +255,6 @@
                     </div>
                 </article>
                 @endforeach
-
-                <!-- Kegiatan -->
-                <article id="kegiatan" class="bg-white rounded-[3rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                    <div class="aspect-video bg-gray-100 flex items-center justify-center text-gray-300 font-bold italic">Thumbnail Kegiatan</div>
-                    <div class="p-8">
-                        <span class="bg-green-100 text-accentGreen text-[10px] font-black px-3 py-1 rounded-full uppercase">Kegiatan</span>
-                        <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-primary transition-colors">Fortasi 2024: Semangat Kader Berkemajuan</h3>
-                        <p class="text-gray-500 text-sm mb-6">Melihat keseruan penyambutan siswa baru di lingkungan perguruan Muhammadiyah Cileungsi...</p>
-                        <a href="#" class="text-primary font-bold text-xs uppercase inline-flex items-center gap-2">Lihat Laporan <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
-                    </div>
-                </article>
-
-                <!-- Opini -->
-                <article id="opini" class="bg-white rounded-[3rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                    <div class="aspect-video bg-gray-100 flex items-center justify-center text-gray-300 font-bold italic">Thumbnail Opini</div>
-                    <div class="p-8">
-                        <span class="bg-orange-100 text-accentOrange text-[10px] font-black px-3 py-1 rounded-full uppercase">Opini</span>
-                        <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-primary transition-colors">Literasi Digital di Era Milenial</h3>
-                        <p class="text-gray-500 text-sm mb-6">Tulisan menarik dari kader mengenai tantangan informasi di media sosial saat ini...</p>
-                        <a href="#" class="text-primary font-bold text-xs uppercase inline-flex items-center gap-2">Baca Opini <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
-                    </div>
-                </article>
             </div>
         </div>
     </section>
