@@ -43,6 +43,11 @@
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans selection:bg-blue-100 selection:text-primary">
+    @php
+        $anggotaAuth = auth('anggota')->user();
+        $adminAuth = auth()->user();
+        $arsipUrl = $anggotaAuth ? route('anggota.arsip.index') : route('login');
+    @endphp
 
     <!-- NAVIGASI (Menggunakan Biru Medium yang Lebih Cerah & Fresh) -->
     <nav class="sticky top-0 z-50 bg-primary border-b border-white/10 shadow-lg">
@@ -74,7 +79,7 @@
                     <div class="dropdown-menu absolute hidden bg-white shadow-2xl rounded-2xl p-2 w-52 border border-gray-100 mt-0 text-gray-800">
                         <a href="#sejarah" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Sejarah</a>
                         <a href="#struktur" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors font-semibold text-primary">Struktur Organisasi</a>
-                        <a href="#arsip" class="block p-3 hover:bg-gray-50 rounded-xl border-t mt-1 transition-colors text-accentOrange">Arsip</a>
+                        <a href="{{ $arsipUrl }}" class="block p-3 hover:bg-gray-50 rounded-xl border-t mt-1 transition-colors text-accentOrange">Arsip</a>
                     </div>
                 </div>
 
@@ -87,7 +92,26 @@
                 
                 <!-- Tombol Pusat Bantuan dengan Aksen Orange Terbaca -->
                 <a href="#bantuan" class="bg-accentOrange text-white px-6 py-2.5 rounded-full hover:shadow-xl hover:bg-orange-600 transition-all active:scale-95">Pusat Bantuan</a>
-                <a href="{{ route('login') }}" class="border border-white text-white px-6 py-2.5 rounded-full hover:shadow-x transition-all hover:scale-105 active:scale-95">Login</a>
+                @if ($anggotaAuth)
+                    <div class="group relative">
+                        <button class="flex items-center gap-2 rounded-full border border-white px-5 py-2.5 text-white transition-all hover:bg-white/10">
+                            {{ $anggotaAuth->nama }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dropdown-menu absolute right-0 hidden w-52 rounded-2xl border border-gray-100 bg-white p-2 text-gray-800 shadow-2xl">
+                            <a href="{{ route('anggota.profile.edit') }}" class="block rounded-xl p-3 transition-colors hover:bg-gray-50">Profile</a>
+                            <a href="{{ route('anggota.arsip.index') }}" class="block rounded-xl p-3 transition-colors hover:bg-gray-50">Arsip</a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="block w-full rounded-xl p-3 text-left transition-colors hover:bg-gray-50">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                @elseif ($adminAuth)
+                    <a href="{{ route('admin.dashboard') }}" class="border border-white text-white px-6 py-2.5 rounded-full hover:shadow-x transition-all hover:scale-105 active:scale-95">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="border border-white text-white px-6 py-2.5 rounded-full hover:shadow-x transition-all hover:scale-105 active:scale-95">Login</a>
+                @endif
 
             </div>
 
@@ -104,13 +128,24 @@
             <a href="#" class="text-white">Beranda</a>
             <a href="#sejarah" class="hover:text-white">Sejarah</a>
             <a href="#struktur" class="hover:text-white">Struktur Organisasi</a>
-            <a href="#arsip" class="hover:text-white">Arsip</a>
+            <a href="{{ $arsipUrl }}" class="hover:text-white">Arsip</a>
             <hr class="border-white/10">
             <a href="#berita" class="hover:text-white">Berita</a>
             <a href="#kegiatan" class="hover:text-white">Kegiatan</a>
             <a href="#opini" class="hover:text-white">Opini</a>
             <a href="#bantuan" class="bg-accentOrange text-white text-center py-4 rounded-2xl">Pusat Bantuan Pelajar</a>
-            <a href="{{ route('login') }}" class="border border-white text-white text-center py-4 rounded-2xl">Login Admin</a>
+            @if ($anggotaAuth)
+                <a href="{{ route('anggota.profile.edit') }}" class="border border-white text-white text-center py-4 rounded-2xl">{{ $anggotaAuth->nama }}</a>
+                <a href="{{ route('anggota.arsip.index') }}" class="border border-white text-white text-center py-4 rounded-2xl">Arsip</a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="w-full border border-white text-white text-center py-4 rounded-2xl">Logout</button>
+                </form>
+            @elseif ($adminAuth)
+                <a href="{{ route('admin.dashboard') }}" class="border border-white text-white text-center py-4 rounded-2xl">Dashboard Admin</a>
+            @else
+                <a href="{{ route('login') }}" class="border border-white text-white text-center py-4 rounded-2xl">Login</a>
+            @endif
         </div>
     </nav>
 
@@ -130,7 +165,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-5">
                     <a href="#bantuan" class="bg-primary text-white text-center px-10 py-5 rounded-[2rem] font-extrabold text-lg shadow-2xl shadow-blue-200 hover:scale-105 transition-all">Pusat Bantuan Pelajar</a>
-                    <a href="#arsip" class="bg-white border-2 border-blue-150 text-gray-700 text-center px-10 py-5 rounded-[2rem] font-extrabold text-lg hover:bg-gray-50 transition-all">Jelajahi Arsip</a>
+                    <a href="{{ $arsipUrl }}" class="bg-white border-2 border-blue-150 text-gray-700 text-center px-10 py-5 rounded-[2rem] font-extrabold text-lg hover:bg-gray-50 transition-all">Jelajahi Arsip</a>
                 </div>
             </div>
             <div class="relative animate-in fade-in slide-in-from-right duration-1000">
@@ -171,30 +206,19 @@
             
             <!-- Pimpinan Umum -->
             <div class="grid md:grid-cols-3 gap-6 mb-16">
-                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
-                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">Ketua Umum</p>
-                    <h4 class="text-xl font-bold text-gray-800">Zaki Muhammad</h4>
-                </div>
-                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
-                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">Sekretaris Umum</p>
-                    <h4 class="text-xl font-bold text-gray-800">Ahmad Faiz</h4>
-                </div>
-                <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
-                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">Bendahara Umum</p>
-                    <h4 class="text-xl font-bold text-gray-800">Siti Aisyah</h4>
-                </div>
+                @foreach ($pimpinanUmum as $pimpinan)
+                    <div class="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm text-center hover:border-primary hover:shadow-md transition-all group cursor-pointer" onclick="showDrillDown('umum')">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-2 group-hover:text-primary">{{ $pimpinan['label'] }}</p>
+                        <h4 class="text-xl font-bold text-gray-800">{{ $pimpinan['nama'] }}</h4>
+                    </div>
+                @endforeach
             </div>
 
             <!-- Bidang-Bidang -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                <button onclick="showDrillDown('perkaderan')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Perkaderan</button>
-                <button onclick="showDrillDown('kdi')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Kajian Dakwah Islam (KDI)</button>
-                <button onclick="showDrillDown('pip')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang PIP</button>
-                <button onclick="showDrillDown('asbo')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Apresiasi Seni Budaya dan Olahraga (Asbo)</button>
-                <button onclick="showDrillDown('pkk')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Pengembangan Kreatifitas dan Kewirausahaan</button>
-                <button onclick="showDrillDown('keipmawatian')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Keipmawatian</button>
-                <button onclick="showDrillDown('advokasi')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">Bidang Advokasi</button>
-                <div class="bg-gray-100 p-6 rounded-2xl border border-gray-200 font-bold text-sm text-center opacity-50 flex items-center justify-center italic text-gray-500 select-none">Pusat Data Pengurus</div>
+                @foreach ($bidangs as $bidang)
+                    <button onclick="showDrillDown('{{ \Illuminate\Support\Str::slug($bidang->nama, '_') }}')" class="bg-blue-50 p-6 rounded-2xl border border-blue-100/60 font-bold text-sm text-center hover:bg-primary hover:text-white transition-all text-primary duration-300 active:scale-95 outline-none">{{ $bidang->nama }}</button>
+                @endforeach
             </div>
 
             <!-- Panel Detail Drill-Down Dinamis -->
@@ -240,48 +264,21 @@
                 <!-- Berita -->
                 @foreach ($berita as $item)
                 <article id="berita" class="bg-white rounded-[3rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                    <div class="aspect-video bg-gray-100 flex items-center justify-center text-gray-300 font-bold italic">Thumbnail Berita</div>
+                    <div class="aspect-video bg-gray-100 flex items-center justify-center overflow-hidden text-gray-300 font-bold italic">
+                        @if ($item->gambar)
+                            <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        @else
+                            Thumbnail Berita
+                        @endif
+                    </div>
                     <div class="p-8">
-                        <span class="bg-blue-100 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">Berita</span>
+                        <span class="bg-blue-100 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">{{ optional($item->created_at)->format('d M Y') }}</span>
                         <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-primary transition-colors">{{ $item->judul }}</h3>
-                        <p class="text-gray-500 text-sm mb-6">{{ $item->isi }}</p>
+                        <p class="text-gray-500 text-sm mb-6">{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 140) }}</p>
                         <a href="#" class="text-primary font-bold text-xs uppercase inline-flex items-center gap-2">Baca Selengkapnya <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
                     </div>
                 </article>
                 @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION: ARSIP -->
-    <section id="arsip" class="py-24 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-                <div>
-                    <h2 class="text-4xl font-extrabold mb-4 uppercase tracking-tighter">Pusat Arsip Digital</h2>
-                    <p class="text-gray-400 font-medium italic">Pusat berkas, administrasi, dan panduan organisasi.</p>
-                </div>
-                <div class="flex gap-4 w-full md:w-auto">
-                    <input type="text" placeholder="Cari dokumen..." class="bg-white/10 border border-white/20 px-6 py-4 rounded-2xl w-full md:w-80 outline-none focus:bg-white/20 font-bold">
-                    <button class="bg-primary px-8 py-4 rounded-2xl font-bold hover:bg-blue-600 text-white">Cari</button>
-                </div>
-            </div>
-            
-            <div class="grid gap-4">
-                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center justify-between group hover:bg-white/10 transition-all cursor-pointer">
-                    <div class="flex items-center gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <span class="font-bold">Panduan Administrasi IPM v1.2</span>
-                    </div>
-                    <span class="text-[10px] font-bold text-gray-500 uppercase">Download PDF</span>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center justify-between group hover:bg-white/10 transition-all cursor-pointer">
-                    <div class="flex items-center gap-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <span class="font-bold">SK Kepengurusan PC IPM Cileungsi 2023-2025</span>
-                    </div>
-                    <span class="text-[10px] font-bold text-gray-500 uppercase">Download PDF</span>
-                </div>
             </div>
         </div>
     </section>
@@ -378,7 +375,7 @@
                 <ul class="space-y-4 text-sm font-bold text-gray-500">
                     <li><a href="#sejarah" class="hover:text-primary transition-colors">Sejarah Kami</a></li>
                     <li><a href="#struktur" class="hover:text-primary transition-colors">Struktur Kepengurusan</a></li>
-                    <li><a href="#arsip" class="hover:text-primary transition-colors">Arsip Dokumen</a></li>
+                    <li><a href="{{ $arsipUrl }}" class="hover:text-primary transition-colors">Arsip Dokumen</a></li>
                 </ul>
             </div>
 
@@ -408,88 +405,7 @@
     <!-- JAVASCRIPT LOGIC UNTUK INTERAKTIF DRILL-DOWN & MOBILE MENU -->
     <script>
         // Repositori Data Pengurus Dinamis
-        const strukturData = {
-            umum: {
-                title: "Pimpinan Umum Harian",
-                badge: "Inti Organisasi",
-                desc: "Pimpinan Harian bertanggung jawab penuh atas arah kebijakan organisasi, koordinasi internal antar bidang, serta representasi eksternal Pimpinan Cabang IPM Cileungsi dalam gerakan dakwah pelajar.",
-                members: [
-                    "<strong>Ketua Umum:</strong> Zaki Muhammad",
-                    "<strong>Sekretaris Umum:</strong> Ahmad Faiz",
-                    "<strong>Bendahara Umum:</strong> Siti Aisyah"
-                ]
-            },
-            perkaderan: {
-                title: "Bidang Perkaderan",
-                badge: "Jantung Organisasi",
-                desc: "Fokus utama pada pengelolaan sistem kaderisasi, pelaksanaan Taruna Melati, serta pemetaan potensi kader secara berkala di seluruh lingkungan cabang Cileungsi.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Rahmawati Putri",
-                    "<strong>Sekretaris Bidang:</strong> Budi Santoso",
-                    "<strong>Anggota:</strong> Dedi Dermawan, Citra Lestari"
-                ]
-            },
-            kdi: {
-                title: "Bidang Kajian Dakwah Islam (KDI)",
-                badge: "Spiritualitas Pelajar",
-                desc: "Bertanggung jawab menyelenggarakan kajian keislaman kontemporer, pembentukan komunitas literasi Al-Qur'an, serta dakwah kreatif digital khusus kalangan remaja.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Lukman Hakim",
-                    "<strong>Sekretaris Bidang:</strong> Hani Kamila",
-                    "<strong>Anggota:</strong> Farhan Anshori, Yusuf Mansur"
-                ]
-            },
-            pip: {
-                title: "Bidang Pengkajian Ilmu Pengetahuan (PIP)",
-                badge: "Literasi & Riset",
-                desc: "Mengembangkan iklim keilmuan, riset pelajar, pengelolaan mading digital, serta kampanye literasi kritis bagi pelajar Muhammadiyah Cileungsi.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Rizky Ramadhan",
-                    "<strong>Sekretaris Bidang:</strong> Anisa Fitri",
-                    "<strong>Anggota:</strong> Gilang Permana, Rania Syifa"
-                ]
-            },
-            asbo: {
-                title: "Bidang Apresiasi Seni Budaya dan Olahraga (ASBO)",
-                badge: "Kreativitas & Bakat",
-                desc: "Wadah pengembangan minat bakat, penyelenggaraan kompetisi olahraga persahabatan, seni musik islami, serta apresiasi budaya kreatif.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Fathur Rahman",
-                    "<strong>Sekretaris Bidang:</strong> Nabila Azzahra",
-                    "<strong>Anggota:</strong> Kevin Sanjaya, Giska Amelia"
-                ]
-            },
-            pkk: {
-                title: "Bidang Pengembangan Kreatifitas & Kewirausahaan (PKK)",
-                badge: "Kemandirian Ekonomi",
-                desc: "Mendorong inkubasi bisnis mandiri pelajar, pelatihan keterampilan digital *entrepreneurship*, serta pengelolaan unit usaha organisasi.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Dimas Prayoga",
-                    "<strong>Sekretaris Bidang:</strong> Eka Wahyuni",
-                    "<strong>Anggota:</strong> Hendra Wijaya, Sasa Sabrina"
-                ]
-            },
-            keipmawatian: {
-                title: "Bidang Keipmawatian",
-                badge: "Pemberdayaan Perempuan",
-                desc: "Fokus terhadap pendampingan isu perempuan, kesehatan reproduksi remaja putri, kepemimpinan publik bagi ipmawati, serta integrasi dengan Ruang Aman.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Wardah Maulida",
-                    "<strong>Sekretaris Bidang:</strong> Alya Nurul",
-                    "<strong>Anggota:</strong> Tyas Utami, Mega Buana"
-                ]
-            },
-            advokasi: {
-                title: "Bidang Advokasi Pelajar",
-                badge: "Pelindung Hak Pelajar",
-                desc: "Mengelola integrasi sistem Pusat Bantuan Pelajar, edukasi hak anak, pencegahan *bullying* (perundungan), serta pendampingan hukum dasar bagi pelajar.",
-                members: [
-                    "<strong>Ketua Bidang:</strong> Teguh Iman",
-                    "<strong>Sekretaris Bidang:</strong> Larasati Dwi",
-                    "<strong>Anggota:</strong> Adi Saputra, Fahmi Idris"
-                ]
-            }
-        };
+        const strukturData = @json($strukturData);
 
         function showDrillDown(key) {
             const data = strukturData[key];

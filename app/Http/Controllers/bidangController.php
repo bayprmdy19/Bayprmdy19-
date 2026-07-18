@@ -2,19 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Bidang;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BidangController extends Controller
 {
-    public function index()
+    public function index(Request $request): View
     {
-        // Menampilkan halaman bidang
-        // Mengambil semua data bidang dari database dan mengurutkannya secara ascending
         $bidangs = Bidang::query()
-        ->orderBy('nama', 'asc')
-        ->paginate(10); 
-        return view('admin.bidang.index', compact('bidangs'));
+            ->when($request->filled('search'), function ($query) use ($request) {
+                $search = trim($request->string('search')->value());
+
+                $query->where(function ($innerQuery) use ($search) {
+                    $innerQuery
+                        ->where('nama', 'like', "%{$search}%")
+                        ->orWhere('tipe', 'like', "%{$search}%")
+                        ->orWhere('deskripsi', 'like', "%{$search}%");
+                });
+            })
+            ->when($request->filled('tipe'), function ($query) use ($request) {
+                $query->where('tipe', $request->string('tipe')->value());
+            })
+            ->orderBy('nama')
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('admin.bidang.index', [
+            'bidangs' => $bidangs,
+            'filters' => $request->only(['search', 'tipe']),
+            'tipeOptions' => Bidang::query()->select('tipe')->distinct()->orderBy('tipe')->pluck('tipe'),
+        ]);
     }
 
     public function create()

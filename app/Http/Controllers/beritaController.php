@@ -4,18 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Berita;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class beritaController extends Controller
 {
     /**
      * Menampilkan daftar berita di dashboard admin.
      */
-    public function index()
+    public function index(Request $request): View
     {
-        // Mengambil semua data berita terbaru dengan pagination 10 data per halaman
-        $beritas = Berita::query()->latest()->paginate(10);
-        return view('admin.berita.index', compact('beritas'));
+        $beritas = Berita::query()
+            ->when($request->filled('search'), function ($query) use ($request) {
+                $search = trim($request->string('search')->value());
+
+                $query->where(function ($innerQuery) use ($search) {
+                    $innerQuery
+                        ->where('judul', 'like', "%{$search}%")
+                        ->orWhere('isi', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('admin.berita.index', [
+            'beritas' => $beritas,
+            'filters' => $request->only(['search']),
+        ]);
     }
 
     /**
@@ -44,7 +62,7 @@ class beritaController extends Controller
         $berita->isi   = $request->input('isi');
 
         if ($request->hasFile('gambar')) {
-            $berita->gambar = $request->file('gambar')->store('berita', 'public');
+            $berita->gambar = $this->storeGambar($request->file('gambar'));
         } else {
             $berita->gambar = null;
         }
@@ -81,11 +99,8 @@ class beritaController extends Controller
         $berita->isi   = $request->input('isi');
 
         if ($request->hasFile('gambar')) {
-            // Hapus gambar lama jika ada untuk menghemat penyimpanan server
-            if ($berita->gambar) {
-                Storage::disk('public')->delete($berita->gambar);
-            }
-            $berita->gambar = $request->file('gambar')->store('berita', 'public');
+            $this->deleteStoredFile($berita->gambar);
+            $berita->gambar = $this->storeGambar($request->file('gambar'));
         }
 
         $berita->save();
@@ -100,12 +115,40 @@ class beritaController extends Controller
     {
         $berita = Berita::findOrFail($id);
 
-        if ($berita->gambar) {
-            Storage::disk('public')->delete($berita->gambar);
-        }
+        $this->deleteStoredFile($berita->gambar);
 
         $berita->delete();
 
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil dihapus.');
+    }
+
+    private function storeGambar($file): string
+    {
+        $directory = public_path('assets/berita');
+        File::ensureDirectoryExists($directory);
+
+        $filename = now()->format('YmdHis').'-'.Str::uuid().'.'.$file->getClientOriginalExtension();
+        $file->move($directory, $filename);
+
+        return 'assets/berita/'.$filename;
+    }
+
+    private function deleteStoredFile(?string $path): void
+    {
+        if (blank($path)) {
+            return;
+        }
+
+        $publicFile = public_path($path);
+
+        if (File::exists($publicFile)) {
+            File::delete($publicFile);
+
+            return;
+        }
+
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
     }
 }
