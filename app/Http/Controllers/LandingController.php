@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
+use App\Models\Berita;
 
 class LandingController extends Controller
 {
@@ -11,6 +12,8 @@ class LandingController extends Controller
      */
     public function index(): View
     {
-        return view('landingPage');
+        $berita = Berita::latest()->take(3)->get();
+        
+        return view('landingPage', compact('berita'));
     }
 }

@@ -244,15 +244,17 @@
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Berita -->
+                @foreach ($berita as $item)
                 <article id="berita" class="bg-white rounded-[3rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
                     <div class="aspect-video bg-gray-100 flex items-center justify-center text-gray-300 font-bold italic">Thumbnail Berita</div>
                     <div class="p-8">
                         <span class="bg-blue-100 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">Berita</span>
-                        <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-primary transition-colors">Peluncuran Portal Web Resmi IPM Cileungsi</h3>
-                        <p class="text-gray-500 text-sm mb-6">Langkah digitalisasi organisasi untuk memudahkan akses informasi bagi seluruh pelajar...</p>
+                        <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-primary transition-colors">{{ $item->judul }}</h3>
+                        <p class="text-gray-500 text-sm mb-6">{{ $item->isi }}</p>
                         <a href="#" class="text-primary font-bold text-xs uppercase inline-flex items-center gap-2">Baca Selengkapnya <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
                     </div>
                 </article>
+                @endforeach
 
                 <!-- Kegiatan -->
                 <article id="kegiatan" class="bg-white rounded-[3rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group">
