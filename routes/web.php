@@ -8,9 +8,14 @@ use App\Http\Controllers\BidangController;
 use App\Http\Controllers\AnggotaProfileController;
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\anggotaController;
+use App\Http\Controllers\BantuanController;
 
 // Menghubungkan URL root (/) ke method index di LandingController
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+
+// Routes untuk Pusat Bantuan Pelajar
+Route::get('/bantuan', [BantuanController::class, 'create'])->name('bantuan.create');
+Route::post('/bantuan', [BantuanController::class, 'store'])->name('bantuan.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [authController::class, 'index']);
@@ -45,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/arsip/{arsip}/edit', [ArsipController::class, 'edit'])->name('admin.arsip.edit');
     Route::put('/admin/arsip/{arsip}', [ArsipController::class, 'update'])->name('admin.arsip.update');
     Route::delete('/admin/arsip/{arsip}', [ArsipController::class, 'destroy'])->name('admin.arsip.destroy');
+    Route::get('/admin/bantuan', [BantuanController::class, 'index'])->name('admin.bantuan.index');
+    Route::delete('/admin/bantuan/{id}', [BantuanController::class, 'destroy'])->name('admin.bantuan.destroy');
 });
 
 Route::middleware('auth:anggota')->group(function () {

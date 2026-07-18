@@ -302,7 +302,7 @@
                     <p class="text-gray-500 font-medium leading-relaxed mb-10">
                         Butuh pendampingan masalah sekolah atau teman bercerita? Tim kami siap mendampingi.
                     </p>
-                    <button class="w-full bg-primary text-white py-4 rounded-2xl font-bold hover:shadow-lg transition-all active:scale-95">Mulai Sesi</button>
+                    <a href="{{ route('bantuan.create', ['kategori' => 'bullying']) }}" class="w-full block text-center bg-primary text-white py-4 rounded-2xl font-bold hover:shadow-lg transition-all active:scale-95">Mulai Sesi</a>
                 </div>
 
                 <!-- Ruang Aman Ipmawati -->
@@ -314,7 +314,7 @@
                     <p class="text-gray-500 font-medium leading-relaxed mb-10">
                         Konsultasi khusus isu perempuan dan kesehatan remaja putri secara privat.
                     </p>
-                    <button class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold hover:shadow-lg transition-all active:scale-95">Konsultasi Khusus</button>
+                    <a href="{{ route('bantuan.create', ['kategori' => 'kekerasan-seksual']) }}" class="w-full block text-center bg-pink-500 text-white py-4 rounded-2xl font-bold hover:shadow-lg transition-all active:scale-95">Konsultasi Khusus</a>
                 </div>
 
                 <!-- Formulir Anonim -->
@@ -326,7 +326,7 @@
                     <p class="text-gray-500 font-medium leading-relaxed mb-10">
                         Lapor tanpa ragu. Sistem kami menjamin kerahasiaan identitas pelapor sepenuhnya.
                     </p>
-                    <button class="w-full border-2 border-gray-900 py-4 rounded-2xl font-bold hover:bg-gray-900 hover:text-white transition-all active:scale-95">Lapor Sekarang</button>
+                    <a href="{{ route('bantuan.create', ['kategori' => 'bullying']) }}" class="w-full block text-center border-2 border-gray-900 py-4 rounded-2xl font-bold hover:bg-gray-900 hover:text-white transition-all active:scale-95">Lapor Sekarang</a>
                 </div>
             </div>
         </div>
