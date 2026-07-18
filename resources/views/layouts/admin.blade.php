@@ -29,6 +29,11 @@
     </script>
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans antialiased overflow-x-hidden">
+    @php
+        $navLinkBase = 'flex items-center gap-3 rounded-2xl px-4 py-3';
+        $navLinkActive = 'bg-primary text-white shadow-lg shadow-blue-200';
+        $navLinkInactive = 'text-gray-600 hover:bg-gray-100 hover:text-primary';
+    @endphp
     <div class="min-h-screen w-full lg:flex">
         <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] -translate-x-full bg-white border-r border-gray-200 transition-transform duration-300 lg:static lg:max-w-none lg:shrink-0 lg:translate-x-0">
             <div class="flex h-20 items-center justify-between px-6 border-b border-gray-100">
@@ -48,31 +53,27 @@
             </div>
 
             <nav class="p-4 space-y-1 text-sm font-bold">
-                <a href="{{ url('/admin') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 {{ Request::is('admin') || Request::is('admin/dashboard') ? 'bg-primary text-white shadow-lg shadow-blue-200' : 'text-gray-600 hover:bg-gray-100 hover:text-primary' }}">
+                <a href="{{ route('admin.dashboard') }}" class="{{ $navLinkBase }} {{ request()->routeIs('admin.dashboard') ? $navLinkActive : $navLinkInactive }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
                     Dashboard
                 </a>
-                <a href="{{ route('landing') }}" target="_blank" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-gray-600 hover:bg-gray-100 hover:text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
-                    Landing Page
-                </a>
-                <a href="{{ route('admin.bidang.index') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 {{ Request::is('admin/bidang*') ? 'bg-primary text-white shadow-lg shadow-blue-200' : 'text-gray-600 hover:bg-gray-100 hover:text-primary' }}">
+                <a href="{{ route('admin.bidang.index') }}" class="{{ $navLinkBase }} {{ request()->routeIs('admin.bidang.*') ? $navLinkActive : $navLinkInactive }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     Bidang
                 </a>
-                <a href="{{ route('admin.anggota.index') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 {{ Request::is('admin/anggota*') ? 'bg-primary text-white shadow-lg shadow-blue-200' : 'text-gray-600 hover:bg-gray-100 hover:text-primary' }}">
+                <a href="{{ route('admin.anggota.index') }}" class="{{ $navLinkBase }} {{ request()->routeIs('admin.anggota.*') ? $navLinkActive : $navLinkInactive }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     Anggota
                 </a>
-                <a href="{{ route('admin.berita.index') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 {{ Request::is('admin/berita*') ? 'bg-primary text-white shadow-lg shadow-blue-200' : 'text-gray-600 hover:bg-gray-100 hover:text-primary' }}">
+                <a href="{{ route('admin.berita.index') }}" class="{{ $navLinkBase }} {{ request()->routeIs('admin.berita.*') ? $navLinkActive : $navLinkInactive }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
                     Berita
                 </a>
-                <a href="#" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-gray-600 hover:bg-gray-100 hover:text-primary">
+                <a href="{{ route('admin.arsip.index') }}" class="{{ $navLinkBase }} {{ request()->routeIs('admin.arsip.*') ? $navLinkActive : $navLinkInactive }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
                     Arsip Digital
                 </a>
-                <a href="{{ route('admin.bantuan.index') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 {{ Request::is('admin/bantuan*') ? 'bg-primary text-white shadow-lg shadow-blue-200' : 'text-gray-600 hover:bg-gray-100 hover:text-primary' }}">
+                <a href="{{ route('admin.bantuan.index') }}" class="{{ $navLinkBase }} {{ request()->routeIs('admin.bantuan.*') ? $navLinkActive : $navLinkInactive }}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     Bantuan Pelajar
                 </a>

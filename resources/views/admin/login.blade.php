@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin | IPM Cileungsi</title>
+    <title>Login Portal | IPM Cileungsi</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,14 +37,14 @@
                     </div>
                     <div>
                         <p class="text-xl font-extrabold uppercase tracking-tight">IPM Cileungsi</p>
-                        <p class="text-xs font-bold uppercase tracking-widest text-blue-100">Admin Portal</p>
+                        <p class="text-xs font-bold uppercase tracking-widest text-blue-100">Portal Admin & Anggota</p>
                     </div>
                 </a>
 
                 <div>
-                    <p class="mb-5 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-blue-50">Panel Pengelola Konten</p>
-                    <h1 class="text-5xl font-extrabold leading-tight tracking-tight">Kelola portal dengan rapi, cepat, dan terstruktur.</h1>
-                    <p class="mt-6 max-w-lg text-lg font-medium leading-8 text-blue-50">Template ini masih statis. Sambungkan form login, session, dan middleware saat backend sudah siap.</p>
+                    <p class="mb-5 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-blue-50">Portal Pengurus & Anggota</p>
+                    <h1 class="text-5xl font-extrabold leading-tight tracking-tight">Satu pintu masuk untuk admin dan anggota.</h1>
+                    <p class="mt-6 max-w-lg text-lg font-medium leading-8 text-blue-50">Admin tetap masuk ke dashboard, sedangkan anggota akan kembali ke landing page dengan akses profile dan arsip digital.</p>
                 </div>
 
                 <p class="text-xs font-bold uppercase tracking-widest text-blue-100">PC IPM Cileungsi</p>
@@ -57,27 +57,26 @@
                     <div class="mx-auto mb-4 h-14 w-14 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-sm">
                         <img src="{{ asset('images/logo-ipm-cileungsi.png') }}" alt="Logo IPM Cileungsi" class="h-10 w-auto object-contain">
                     </div>
-                    <h1 class="text-2xl font-extrabold text-gray-900">Admin IPM Cileungsi</h1>
-                    <p class="mt-2 text-sm font-medium text-gray-500">Masuk ke panel pengelola konten.</p>
+                    <h1 class="text-2xl font-extrabold text-gray-900">Portal IPM Cileungsi</h1>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Masuk sebagai admin atau anggota.</p>
                 </div>
 
                 <div class="rounded-[2rem] bg-white p-6 shadow-xl shadow-gray-200/70 sm:p-8">
                     <div class="mb-8">
-                        <h2 class="text-2xl font-extrabold text-gray-900">Masuk Admin</h2>
-                        <p class="mt-2 text-sm font-medium text-gray-500">Gunakan akun admin yang nanti kamu sambungkan ke Laravel Auth.</p>
+                        <h2 class="text-2xl font-extrabold text-gray-900">Masuk Portal</h2>
+                        <p class="mt-2 text-sm font-medium text-gray-500">Admin login pakai email, anggota login pakai username.</p>
                     </div>
 
                     <form action="{{ route('authenticate') }}" method="POST" class="space-y-5">
                         @csrf
                         <div>
-                            <label for="email" class="mb-2 block text-sm font-extrabold text-gray-700">Email</label>
-                            <input id="email" name="email" type="email" autocomplete="email" placeholder="admin@ipmcileungsi.or.id" class="w-full rounded-2xl border border-gray-200 px-4 py-4 text-sm font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-blue-100">
+                            <label for="login" class="mb-2 block text-sm font-extrabold text-gray-700">Email / Username</label>
+                            <input id="login" name="login" type="text" value="{{ old('login') }}" autocomplete="username" placeholder="Masukkan email atau username" class="w-full rounded-2xl border border-gray-200 px-4 py-4 text-sm font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-blue-100">
                         </div>
 
                         <div>
                             <div class="mb-2 flex items-center justify-between">
                                 <label for="password" class="block text-sm font-extrabold text-gray-700">Password</label>
-                                <a href="#" class="text-xs font-extrabold text-primary hover:underline">Lupa password?</a>
                             </div>
                             <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" class="w-full rounded-2xl border border-gray-200 px-4 py-4 text-sm font-semibold outline-none transition focus:border-primary focus:ring-4 focus:ring-blue-100">
                         </div>
@@ -90,7 +89,7 @@
                             @endif
                         </label>
 
-                        <button type="submit" class="w-full rounded-2xl bg-primary px-5 py-4 text-sm font-extrabold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-600 active:scale-[0.99]">Masuk ke Dashboard</button>
+                        <button type="submit" class="w-full rounded-2xl bg-primary px-5 py-4 text-sm font-extrabold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-600 active:scale-[0.99]">Masuk</button>
                     </form>
                 </div>
             </div>
