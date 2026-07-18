@@ -80,15 +80,9 @@
 
                 <!-- Label Dropdown -->
                 <div class="group relative">
-                    <button class="flex items-center gap-1 text-blue-50 hover:text-white transition-colors py-2">
-                        Label 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="dropdown-menu absolute hidden bg-white shadow-2xl rounded-2xl p-2 w-48 border border-gray-100 mt-0 text-gray-800">
-                        <a href="#berita" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Berita</a>
-                        <a href="#kegiatan" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Kegiatan</a>
-                        <a href="#opini" class="block p-3 hover:bg-gray-50 rounded-xl transition-colors">Opini</a>
-                    </div>
+                    <a href="#berita" class="flex items-center gap-1 text-blue-50 hover:text-white transition-colors py-2">
+                        Berita
+                    </a>
                 </div>
                 
                 <!-- Tombol Pusat Bantuan dengan Aksen Orange Terbaca -->
