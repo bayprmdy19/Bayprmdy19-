@@ -13,6 +13,9 @@ use App\Http\Controllers\BantuanController;
 // Menghubungkan URL root (/) ke method index di LandingController
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
+// Route publik untuk halaman detail berita
+Route::get('/berita/{id}', [beritaController::class, 'show'])->name('berita.show');
+
 // Routes untuk Pusat Bantuan Pelajar
 Route::get('/bantuan', [BantuanController::class, 'create'])->name('bantuan.create');
 Route::post('/bantuan', [BantuanController::class, 'store'])->name('bantuan.store');
@@ -51,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/arsip/{arsip}', [ArsipController::class, 'update'])->name('admin.arsip.update');
     Route::delete('/admin/arsip/{arsip}', [ArsipController::class, 'destroy'])->name('admin.arsip.destroy');
     Route::get('/admin/bantuan', [BantuanController::class, 'index'])->name('admin.bantuan.index');
+    Route::get('/admin/bantuan/{id}', [BantuanController::class, 'show'])->name('admin.bantuan.show');
     Route::delete('/admin/bantuan/{id}', [BantuanController::class, 'destroy'])->name('admin.bantuan.destroy');
 });
 

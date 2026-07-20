@@ -64,13 +64,11 @@
                                 </td>
                                 <td>
                                     <div class="btn-group gap-2">
-                                        <!-- Button trigger detail modal -->
-                                        <button type="button" 
-                                                class="btn btn-sm btn-outline-primary rounded-2 px-3 font-semibold" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#detailModal{{ $sub->id }}">
+                                        <!-- Link ke halaman detail laporan -->
+                                        <a href="{{ route('admin.bantuan.show', $sub->id) }}"
+                                           class="btn btn-sm btn-outline-primary rounded-2 px-3 font-semibold">
                                             Detail
-                                        </button>
+                                        </a>
 
                                         <!-- Delete action -->
                                         <form action="{{ route('admin.bantuan.destroy', $sub->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus laporan ini?')">
@@ -79,49 +77,6 @@
                                             <button type="submit" class="btn btn-sm btn-danger rounded-2 px-3 font-semibold">Hapus</button>
                                         </form>
                                     </div>
-
-                                    <!-- Detail Modal -->
-                                    <div class="modal fade" id="detailModal{{ $sub->id }}" tabindex="-1" aria-labelledby="detailModalLabel{{ $sub->id }}" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-lg">
-                                            <div class="modal-content rounded-3 border-0 shadow-lg">
-                                                <div class="modal-header border-bottom-0 pb-0">
-                                                    <h5 class="modal-title font-bold text-gray-900" id="detailModalLabel{{ $sub->id }}">
-                                                        Detail Laporan Bantuan
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body pt-3">
-                                                    <div class="row g-3 mb-4">
-                                                        <div class="col-md-6">
-                                                            <span class="text-xs uppercase text-gray-400 font-bold d-block mb-1">Kategori Masalah</span>
-                                                            <h6 class="font-bold text-gray-800">{{ $sub->kategori_masalah }}</h6>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <span class="text-xs uppercase text-gray-400 font-bold d-block mb-1">Tanggal Kirim</span>
-                                                            <h6 class="font-semibold text-gray-800">{{ $sub->created_at->setTimezone('Asia/Jakarta')->format('d F Y, H:i') }} WIB</h6>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <span class="text-xs uppercase text-gray-400 font-bold d-block mb-1">Asal Ranting / Sekolah</span>
-                                                            <h6 class="font-semibold text-gray-800">{{ $sub->asal_ranting }} ({{ $sub->tingkat_sekolah }})</h6>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <span class="text-xs uppercase text-gray-400 font-bold d-block mb-1">Email Pengirim</span>
-                                                            <h6 class="font-semibold text-gray-800">{{ $sub->email ?? 'Anonim (Tidak dicantumkan)' }}</h6>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="border-top pt-3">
-                                                        <span class="text-xs uppercase text-gray-400 font-bold d-block mb-2">Pesan / Isi Laporan</span>
-                                                        <div class="p-3 bg-light rounded-3 font-medium text-gray-800 whitespace-pre-wrap" style="white-space: pre-wrap; min-height: 120px;">{{ $sub->message }}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer border-top-0 pt-0">
-                                                    <button type="button" class="btn btn-secondary rounded-2 px-4" data-bs-dismiss="modal">Tutup</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </td>
                             </tr>
                         @empty

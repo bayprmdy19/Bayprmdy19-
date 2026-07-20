@@ -74,6 +74,22 @@ class beritaController extends Controller
     }
 
     /**
+     * Menampilkan halaman detail berita untuk publik.
+     */
+    public function show($id): View
+    {
+        $berita = Berita::findOrFail($id);
+
+        // Ambil berita terkait lainnya (selain berita ini, maksimal 3)
+        $beritaTerkait = Berita::where('id', '!=', $id)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('berita.show', compact('berita', 'beritaTerkait'));
+    }
+
+    /**
      * Menampilkan formulir edit berita.
      */
     public function edit($id)

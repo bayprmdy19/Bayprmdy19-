@@ -275,7 +275,7 @@
                         <span class="bg-blue-100 text-primary text-[10px] font-black px-3 py-1 rounded-full uppercase">{{ optional($item->created_at)->format('d M Y') }}</span>
                         <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-primary transition-colors">{{ $item->judul }}</h3>
                         <p class="text-gray-500 text-sm mb-6">{{ \Illuminate\Support\Str::limit(strip_tags($item->isi), 140) }}</p>
-                        <a href="#" class="text-primary font-bold text-xs uppercase inline-flex items-center gap-2">Baca Selengkapnya <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
+                        <a href="{{ route('berita.show', $item->id) }}" class="text-primary font-bold text-xs uppercase inline-flex items-center gap-2 hover:gap-3 transition-all">Baca Selengkapnya <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
                     </div>
                 </article>
                 @endforeach

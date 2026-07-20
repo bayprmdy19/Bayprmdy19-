@@ -39,7 +39,7 @@ class BantuanController extends Controller
     {
         $request->validate([
             'kategori_masalah' => 'required|string|in:Bullying & Perundungan,Kesehatan Mental & Stres Belajar,Kekerasan Seksual & Pelecehan,Masalah Akademik & Sekolah,Masalah Keluarga & Pribadi,Lainnya',
-            'tingkat_sekolah' => 'required|string|in:SD / MI,SMP / MTs,SMA / SMK / MA,Lainnya',
+            'tingkat_sekolah' => 'required|string|in:SMP / MTs,SMA / SMK / MA,Lainnya',
             'email' => 'nullable|email',
             'asal_ranting' => 'required|string|max:255',
             'message' => 'required|string',
@@ -57,6 +57,15 @@ class BantuanController extends Controller
     {
         $submissions = Bantuan::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.bantuan.index', compact('submissions'));
+    }
+
+    /**
+     * Display the detail of a single bantuan submission.
+     */
+    public function show($id)
+    {
+        $bantuan = Bantuan::findOrFail($id);
+        return view('admin.bantuan.show', compact('bantuan'));
     }
 
     /**

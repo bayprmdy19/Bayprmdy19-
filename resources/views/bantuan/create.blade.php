@@ -229,7 +229,6 @@
                                         <label for="tingkat_sekolah" class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-400">Tingkat Sekolah</label>
                                         <select name="tingkat_sekolah" id="tingkat_sekolah" class="w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 py-4 text-sm font-semibold text-gray-800 outline-none transition focus:border-transparent focus:ring-2 focus:ring-primary">
                                             <option value="" disabled {{ old('tingkat_sekolah') ? '' : 'selected' }}>Pilih Tingkat</option>
-                                            <option value="SD / MI" {{ old('tingkat_sekolah') === 'SD / MI' ? 'selected' : '' }}>SD / MI</option>
                                             <option value="SMP / MTs" {{ old('tingkat_sekolah') === 'SMP / MTs' ? 'selected' : '' }}>SMP / MTs</option>
                                             <option value="SMA / SMK / MA" {{ old('tingkat_sekolah') === 'SMA / SMK / MA' ? 'selected' : '' }}>SMA / SMK / MA</option>
                                             <option value="Lainnya" {{ old('tingkat_sekolah') === 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
