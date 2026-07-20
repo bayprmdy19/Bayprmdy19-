@@ -57,14 +57,20 @@ class ArsipController extends Controller
 
         $file = $request->file('file');
 
+        // Ambil metadata sebelum file dipindahkan (move() menghapus file temporary)
+        $originalName = $file->getClientOriginalName();
+        $mimeType     = $file->getClientMimeType();
+        $ukuran       = $file->getSize();
+        $filePath     = $this->storeArsipFile($file);
+
         Arsip::create([
-            'judul' => $data['judul'],
+            'judul'         => $data['judul'],
             'tanggal_arsip' => $data['tanggal_arsip'],
-            'deskripsi' => $data['deskripsi'] ?? null,
-            'file_path' => $this->storeArsipFile($file),
-            'original_name' => $file->getClientOriginalName(),
-            'mime_type' => $file->getClientMimeType(),
-            'ukuran' => $file->getSize(),
+            'deskripsi'     => $data['deskripsi'] ?? null,
+            'file_path'     => $filePath,
+            'original_name' => $originalName,
+            'mime_type'     => $mimeType,
+            'ukuran'        => $ukuran,
         ]);
 
         return redirect()->route('admin.arsip.index')->with('success', 'Arsip berhasil diupload.');
@@ -99,10 +105,12 @@ class ArsipController extends Controller
             $this->deleteStoredFile($arsip->file_path);
 
             $file = $request->file('file');
-            $payload['file_path'] = $this->storeArsipFile($file);
+
+            // Ambil metadata sebelum file dipindahkan (move() menghapus file temporary)
             $payload['original_name'] = $file->getClientOriginalName();
-            $payload['mime_type'] = $file->getClientMimeType();
-            $payload['ukuran'] = $file->getSize();
+            $payload['mime_type']     = $file->getClientMimeType();
+            $payload['ukuran']        = $file->getSize();
+            $payload['file_path']     = $this->storeArsipFile($file);
         }
 
         $arsip->update($payload);
